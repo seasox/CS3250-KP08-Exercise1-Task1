@@ -1,7 +1,5 @@
 package main;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 public class Roman {
 	
 	public Roman() {
@@ -16,17 +14,18 @@ public class Roman {
 	 */
 	public String toRoman(int arabicNumber) {
 		StringBuilder result = new StringBuilder();
-		
-		while (arabicNumber > 0) {
+
+		if (arabicNumber >= 4) {
+			result.append("V");
+			arabicNumber -= 5;
+		}
+		for (int i = arabicNumber; i < 0; ++i) {
+			result.insert(0, "I");
+		}
+		for (int i = arabicNumber; i > 0; --i) {
 			result.append("I");
-			arabicNumber--;
 		}
 		return result.toString();
 	}
 
-	private static class NotImplementedException extends RuntimeException {
-		NotImplementedException(String message) {
-			super(message);
-		}
-	}
 }

@@ -1,5 +1,7 @@
 package main;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 public class Roman {
 	
 	public Roman() {
@@ -13,6 +15,19 @@ public class Roman {
 	 * @return The corresponding Roman number as String.
 	 */
 	public String toRoman(int arabicNumber) {
-		return "I";
+		if (arabicNumber == 1) {
+			return "I";
+		} else if (arabicNumber == 2) {
+			return "II";
+		} else if (arabicNumber == 3) {
+			return "III";
+		}
+		throw new NotImplementedException("Roman numbers not implemented for " + arabicNumber);
+	}
+
+	private static class NotImplementedException extends RuntimeException {
+		NotImplementedException(String message) {
+			super(message);
+		}
 	}
 }

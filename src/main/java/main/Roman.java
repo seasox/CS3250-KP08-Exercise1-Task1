@@ -15,14 +15,13 @@ public class Roman {
 	 * @return The corresponding Roman number as String.
 	 */
 	public String toRoman(int arabicNumber) {
-		if (arabicNumber == 1) {
-			return "I";
-		} else if (arabicNumber == 2) {
-			return "II";
-		} else if (arabicNumber == 3) {
-			return "III";
+		StringBuilder result = new StringBuilder();
+		
+		while (arabicNumber > 0) {
+			result.append("I");
+			arabicNumber--;
 		}
-		throw new NotImplementedException("Roman numbers not implemented for " + arabicNumber);
+		return result.toString();
 	}
 
 	private static class NotImplementedException extends RuntimeException {

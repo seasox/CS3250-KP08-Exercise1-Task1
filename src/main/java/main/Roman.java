@@ -13,8 +13,6 @@ public class Roman {
 	 * @return The corresponding Roman number as String.
 	 */
 	public String toRoman(int arabicNumber) {
-		// TODO implement this method incrementally using TDD
-		return "";
+		return "I";
 	}
-
 }

@@ -24,4 +24,10 @@ public class RomanTest {
         Roman roman = new Roman();
         assertEquals(roman.toRoman(3), "III");
     }
+
+    @Test
+    public void testIV() {
+        Roman roman = new Roman();
+        assertEquals(roman.toRoman(4), "IV");
+    }
 }

@@ -1,7 +1,12 @@
 package main;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Roman {
-	
+
 	public Roman() {
 		
 	}
@@ -15,17 +20,56 @@ public class Roman {
 	public String toRoman(int arabicNumber) {
 		StringBuilder result = new StringBuilder();
 
-		if (arabicNumber >= 4) {
-			result.append("V");
-			arabicNumber -= 5;
+		List<Numeral> numerals = Numerals.descending();
+
+		for (Numeral numeral: numerals) {
+			while (numeral.getValue() <= arabicNumber) {
+				result.append(numeral.name());
+				arabicNumber -= numeral.getValue();
+			}
 		}
-		for (int i = arabicNumber; i < 0; ++i) {
-			result.insert(0, "I");
-		}
-		for (int i = arabicNumber; i > 0; --i) {
-			result.append("I");
-		}
+
 		return result.toString();
 	}
 
+	/**
+	 * An enum representing a roman number
+	 */
+	private enum Numeral {
+		I(1),
+		IV(4),
+		V(5),
+		IX(9),
+		X(10);
+
+		private final int value;
+
+		Numeral(int value) {
+			this.value = value;
+		}
+
+		/**
+		 * Getter for int value
+		 * @return this numeral's value
+		 */
+		public int getValue() {
+			return value;
+		}
+	}
+
+	/**
+	 * Utility class to create list of numerals
+	 */
+	private static class Numerals {
+		/**
+		 * Get List of Numerals in descending order
+		 * @return All numerals, in descending order
+		 */
+		static List<Numeral> descending() {
+			return Arrays
+					.stream(Numeral.values())
+					.sorted(Comparator.comparingInt(Numeral::getValue).reversed())
+					.collect(Collectors.toList());
+		}
+	}
 }

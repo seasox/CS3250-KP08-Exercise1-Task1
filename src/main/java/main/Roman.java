@@ -22,6 +22,7 @@ public class Roman {
 
 		List<Numeral> numerals = Numerals.descending();
 
+		// whoever came up with the idea of roman numerals deserves to get stabbed in the back
 		for (Numeral numeral: numerals) {
 			while (numeral.getValue() <= arabicNumber) {
 				result.append(numeral.name());
@@ -40,7 +41,16 @@ public class Roman {
 		IV(4),
 		V(5),
 		IX(9),
-		X(10);
+		X(10),
+		XL(40),
+		L(50),
+		XC(90),
+		C(100),
+		CD(400),
+		D(500),
+		CM(900),
+		M(1000)
+		;
 
 		private final int value;
 

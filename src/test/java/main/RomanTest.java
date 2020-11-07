@@ -26,6 +26,15 @@ public class RomanTest {
         m.put(14, "XIV");
         m.put(15, "XV");
         m.put(20, "XX");
+        m.put(39, "XXXIX");
+        m.put(40, "XL");
+        m.put(45, "XLV");
+        m.put(49, "XLIX");
+        m.put(97, "XCVII");
+        m.put(99, "XCIX");
+        m.put(166, "CLXVI");
+        m.put(999, "CMXCIX");
+        m.put(1000, "M");
         Roman roman = new Roman();
         for (Integer arabicNumber: m.keySet()) {
             String romanNumber = m.get(arabicNumber);
